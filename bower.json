@@ -1,0 +1,17 @@
+{
+  "name": "ui-router",
+  "authors": [
+    "donKurilio <adskiyyo@mail.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-resource": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "angular-ui-router": "^0.3.1",
+    "underscore": "^1.8.3"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "lastName": "Пупкин",
+      "firstName": "Василий",
+      "middleName": "Игоревич"
+    },
+    {
+      "id": 2,
+      "lastName": "Синицин",
+      "firstName": "Алексей",
+      "middleName": "Сергеевич"
+    },
+    {
+      "id": 3,
+      "lastName": "Бандель",
+      "firstName": "Вадим",
+      "middleName": "Генадьевич"
+    },
+    {
+      "id": 4,
+      "lastName": "Васильев",
+      "firstName": "Вндрей",
+      "middleName": "Николаевич"
+    },
+    {
+      "id": 5,
+      "lastName": "Федорова",
+      "firstName": "Елена",
+      "middleName": "Львовна"
+    },
+    {
+      "id": 6,
+      "lastName": "Шаляпин",
+      "firstName": "Андрей",
+      "middleName": "Львович"
+    },
+    {
+      "id": 7,
+      "lastName": "Петров",
+      "firstName": "Максим",
+      "middleName": "Андреевич"
+    },
+    {
+      "id": 8,
+      "lastName": "Путин",
+      "firstName": "Владимир",
+      "middleName": "Владимирович"
+    }
+  ]
+}

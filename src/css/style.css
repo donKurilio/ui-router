@@ -1,0 +1,9 @@
+.employees-table:hover {
+    cursor: pointer;
+}
+.bottom-buttons {
+    text-align:right;
+}
+.bottom-buttons button {
+    margin-left:10px;
+}
