@@ -30,7 +30,4 @@ angular.module('employeeApp', ['ui.router', 'ngResource'])
     })
     .factory('employeesResource', ['$resource', function ($resource) {
         return $resource('employees.json').get();
-    }])
-    .value('currentEmp', {
-        id: 0
-    });
+    }]);
