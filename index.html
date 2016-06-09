@@ -10,18 +10,18 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
     <script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
     <script src="bower_components/underscore/underscore.js" type="text/javascript"></script>
-    <script src="src/js/employeeApp.js" type="text/javascript"></script>
+    <script src="src/main.js" type="text/javascript"></script>
+    <script src="src/pages/employees/employees.js" type="text/javascript"></script>
+    <script src="src/pages/employees/employee/employee.js" type="text/javascript"></script>
+    <script src="src/pages/about/about.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="container" ng-controller="rootController as rtCtrl">
+<div class="container">
     <div class="row">
         <ul class="nav nav-tabs">
             <li role="presentation" ui-sref-active="active"><a ui-sref="employees">Сотрудники</a></li>
             <li role="presentation" ui-sref-active="active"><a ui-sref="about">О нас</a></li>
         </ul>
-        <div class="page-header">
-            <h1>{{ pageTitle }}</h1>
-        </div>
     </div>
     <div class="row" ui-view></div>
 </div>
