@@ -1,13 +1,22 @@
-angular.module('employeeApp').controller('EditEmployeeController', ['$scope', '$state', 'employees', function ($scope, $state, employees) {
+angular.module('employeeApp').controller('EditEmployeeController', ['$scope', '$state', 'storage', function ($scope, $state, storage) {
     var vm = this;
     vm.curId = parseInt($state.params.employeeId);
-    var emp = _.find(employees, function (obj) {
+    $scope.$parent.curPersId = vm.curId;
+    var emp = _.find(storage.emps, function (obj) {
         return obj.id === vm.curId;
     });
-    var id = _.indexOf(employees, emp);
     vm.empBuf = angular.copy(emp);
     vm.saveEmp = function () {
-        employees[id] = angular.copy(vm.empBuf);
+        storage.emps = _.map(storage.emps, function (obj) {
+            return obj.id === vm.empBuf.id ? vm.empBuf : obj;
+        });
+        $state.reload();
     };
+    vm.delEmp = function() {
+        storage.emps = _.reject(storage.emps, function (obj) {
+            return obj.id === vm.empBuf.id;
+        });
+        $state.reload();
+    }
 
 }]);

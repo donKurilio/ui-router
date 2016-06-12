@@ -14,8 +14,7 @@
         <tbody>
         <tr ng-repeat="employee in tableEmps.employees track by employee.id"
             ng-click="tableEmps.editEmployee(employee.id)"
-            ng-class="{'info' : tableEmps.curPersId===employee.id}"
-            ui-sref-active="active">
+            ng-class="{'info' : curPersId===employee.id}">
             <td>{{ employee.id }}</td>
             <td>{{ employee.lastName }}</td>
             <td>{{ employee.firstName }}</td>
@@ -23,9 +22,12 @@
         </tr>
         </tbody>
     </table>
-    <div class="panel panel-default" ng-show = "tableEmps.curPersId">
-        <div class="panel-body">
-            Выбран сотрудник № {{tableEmps.curPersId}}
+    <div class="panel panel-default" >
+        <div class="panel-body" ng-show = "curPersId">
+            Выбран сотрудник № {{curPersId}}
+        </div>
+        <div class="panel-footer text-center">
+            <button type="button" class="btn btn-default" ng-click="tableEmps.addEmp()">Добавить сотрудника</button>
         </div>
     </div>
 </div>

@@ -1,0 +1,29 @@
+<div class="page-header">
+    <h2>Добавить сотрудника</h2>
+</div>
+<div class="form-horizontal employee-details">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="lastname">Фамилия</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.empBuf.lastName" name="lastname" id="lastname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="firstname">Имя</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.empBuf.firstName" name="firstname" id="firstname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="middlename">Отчество</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.empBuf.middleName" name="middlename" id="middlename">
+        </div>
+    </div>
+    <div class="bottom-buttons">
+        <button type="button" class="btn btn-primary" ng-click="addEmp.saveEmp()">Сохранить сотрудника</button>
+        <button type="button" class="btn btn-default" ng-click="addEmp.cancellEmp()">Отмена</button>
+    </div>
+</div>

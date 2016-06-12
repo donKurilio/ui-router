@@ -3,14 +3,6 @@ angular.module('employeeApp', ['ui.router', 'ngResource'])
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('employees', {
-                resolve: {
-                    config: function (employeesResource) {
-                        return employeesResource.$promise;
-                    },
-                    employees: function (config) {
-                        return config.employees
-                    }
-                },
                 url: '/',
                 templateUrl: 'src/pages/employees/employees.html',
                 controller: 'EmployeesController',
@@ -22,12 +14,21 @@ angular.module('employeeApp', ['ui.router', 'ngResource'])
                 controller: 'EditEmployeeController',
                 controllerAs: 'editEmp'
             })
+            .state('employees.add', {
+                url: 'addEmployee',
+                templateUrl: 'src/pages/employees/addEmployee/addEmployee.html',
+                controller: 'AddEmployeeController',
+                controllerAs: 'addEmp'
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: 'src/pages/about/about.html',
                 controller: 'AboutController as aboutCtrl'
             })
     })
-    .factory('employeesResource', ['$resource', function ($resource) {
-        return $resource('employees.json').get();
+    .value('storage', {})
+    .run(['storage','$resource', function (storage,$resource) {
+        $resource('employees.json').get(function(data){
+            storage.emps = data.employees;
+        });
     }]);
