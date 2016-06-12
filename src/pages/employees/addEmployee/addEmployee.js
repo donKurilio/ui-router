@@ -1,12 +1,11 @@
-angular.module('employeeApp').controller('AddEmployeeController', ['$scope', '$state', 'storage', function ($scope, $state, storage) {
+app.controller('AddEmployeeController', ['$state', 'storage', function ($state, storage) {
     var vm = this;
-    vm.empBuf = {};
     vm.saveEmp = function () {
         vm.empBuf.id = _.max(_.pluck(storage.emps, "id")) + 1;
         storage.emps.push(vm.empBuf);
-        $state.go("employees", null, {reload: true});
+        $state.go("^");
     };
-    vm.cancellEmp = function () {
-        $state.go("employees");
+    vm.cancelEmp = function () {
+        $state.go("^");
     }
 }]);
