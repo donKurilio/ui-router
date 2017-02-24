@@ -1,5 +1,5 @@
-app.controller('AboutController', function () {
-    var vm = this;
+module.exports = function () {
+    const vm = this;
     vm.pageTitle = "О нас";
     vm.pageText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ' +
         'id dolor ut dolor pulvinar fringilla. Aliquam fringilla metus interdum nibh faucibus ' +
@@ -13,4 +13,4 @@ app.controller('AboutController', function () {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim felis ac ' +
         'nulla pretium finibus. Integer rhoncus tempor mauris quis pretium. Duis dictum erat id orci sagittis, id ' +
         'pulvinar orci ultricies. Suspendisse potenti.';
-});
+};

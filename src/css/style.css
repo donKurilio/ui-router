@@ -9,6 +9,9 @@
 .bottom-buttons button {
     margin-left: 10px;
 }
+.main-menu {
+    padding: 15px 0;
+}
 
 .nav-tabs > li.active > a:hover {
     cursor: pointer;

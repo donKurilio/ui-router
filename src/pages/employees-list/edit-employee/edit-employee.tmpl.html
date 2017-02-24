@@ -1,0 +1,43 @@
+<div class="page-header">
+    <h2>Изменить информацию
+        <small>сотрудник № <span ng-bind="emp.currEmp.id"></span></small>
+    </h2>
+</div>
+<form name="emp.editForm" class="form-horizontal employee-details">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editLastName">Фамилия</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="emp.currEmp.lastName" name="lastName" id="editLastName"
+                   ng-required="true">
+                        <span class="label label-danger error-message"
+                              ng-show="emp.editForm.lastName.$invalid">Поле "Фамилия" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editFirstName">Имя</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="emp.currEmp.firstName" name="firstName"
+                   id="editFirstName" ng-required="true">
+                <span class="label label-danger error-message"
+                      ng-show="emp.editForm.firstName.$invalid">Поле "Имя" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editMidName">Отчество</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="emp.currEmp.middleName" name="midName"
+                   id="editMidName" ng-required="true">
+                <span class="label label-danger error-message"
+                      ng-show="emp.editForm.midName.$invalid">Поле "Отчество" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="bottom-buttons">
+        <button type="button" class="btn btn-primary" ng-disabled="emp.editForm.$invalid" ng-click="emp.saveEmp()">
+            Сохранить
+        </button>
+        <button type="button" class="btn btn-danger" ng-click="emp.delEmp()">Удалить</button>
+    </div>
+</form>

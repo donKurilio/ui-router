@@ -1,0 +1,37 @@
+<div class="page-header">
+    <h2>Добавить сотрудника</h2>
+</div>
+<form name="addEmp.addForm" class="form-horizontal employee-details">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editLastName">Фамилия</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.currEmp.lastName" name="lastName" id="editLastName" required>
+                        <span class="label label-danger error-message"
+                              ng-show="addEmp.addForm.lastName.$invalid && addEmp.addForm.lastName.$touched">Поле "Фамилия" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editFirstName">Имя</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.currEmp.firstName" name="firstName" id="editFirstName" required>
+                <span class="label label-danger error-message"
+                      ng-show="addEmp.addForm.firstName.$invalid && addEmp.addForm.firstName.$touched">Поле "Имя" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="editMidName">Отчество</label>
+
+        <div class="col-sm-9">
+            <input type="text" class="form-control" ng-model="addEmp.currEmp.middleName" name="midName"
+                   id="editMidName" required>
+                <span class="label label-danger error-message"
+                      ng-show="addEmp.addForm.midName.$invalid && addEmp.addForm.midName.$touched">Поле "Отчество" не может быть пустым</span>
+        </div>
+    </div>
+    <div class="bottom-buttons">
+        <button type="button" class="btn btn-primary" ng-click="addEmp.saveEmp()" ng-disabled="addEmp.addForm.$invalid">Сохранить сотрудника</button>
+        <button type="button" class="btn btn-default" ng-click="addEmp.cancelEmp()">Отмена</button>
+    </div>
+</form>

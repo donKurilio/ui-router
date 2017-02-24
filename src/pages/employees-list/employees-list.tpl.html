@@ -1,0 +1,32 @@
+<div class="page-header">
+    <h1 ng-bind="emps.pageTitle"></h1>
+</div>
+<div class="col-md-6">
+    <table class="table table-hover table-striped employees-table">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in emps.storage.employees track by employee.id"
+            ng-click="emps.editEmployee(employee)"
+            ng-class="{'info' : emps.$state.params.empID===employee.id}">
+            <td ng-bind="employee.id"></td>
+            <td ng-bind="employee.lastName"></td>
+            <td ng-bind="employee.firstName"></td>
+            <td ng-bind="employee.middleName"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panel panel-default">
+        <div class="panel-body" ng-bind="emps.currEmp ? 'Выбран сотрудник № ' + emps.currEmp.id : 'Нет выделения'"></div>
+        <div class="panel-footer text-center">
+            <button type="button" class="btn btn-default" ng-click="emps.addEmp()">Добавить сотрудника</button>
+        </div>
+    </div>
+</div>
+<div class="col-md-6" ui-view></div>
