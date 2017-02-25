@@ -1,5 +1,4 @@
 const angular = require('angular');
-require('oclazyload');
 angular.module('employeeApp',
     [
         require('oclazyload'),

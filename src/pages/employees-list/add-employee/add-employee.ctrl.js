@@ -1,5 +1,6 @@
 class AddEmployeeController {
     constructor($state, storage, _) {
+        "ngInject";
         angular.extend(this, {$state, storage, _});
     }
 

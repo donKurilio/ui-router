@@ -1,5 +1,6 @@
 class EditEmployeeController {
     constructor($state, storage, _) {
+        "ngInject";
         angular.extend(this, {$state, storage, _});
         this.emp = this._.find(this.storage.employees, obj => obj.id === this.$state.params.empID);
         if (this.emp) {
@@ -20,5 +21,4 @@ class EditEmployeeController {
         this.$state.go('^');
     };
 }
-EditEmployeeController.$inject = ['$state', 'storage', '_'];
 module.exports = EditEmployeeController;

@@ -5,7 +5,8 @@ const config = {
     controller: 'AboutController',
     controllerAs: 'aboutCtrl',
     resolve: {
-        loadModule: ($q, $ocLazyLoad) => {
+        'loadModule': ($q, $ocLazyLoad) => {
+            "ngInject";
             const deferred = $q.defer();
             require.ensure([], function() {
                 $ocLazyLoad.load(require('./'));

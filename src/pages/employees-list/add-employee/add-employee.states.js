@@ -6,12 +6,12 @@ module.exports = {
     controllerAs: 'addEmp',
     resolve: {
         loadModule: ($q, $ocLazyLoad) => {
+            "ngInject";
             const deferred = $q.defer();
             require.ensure([], function() {
                 $ocLazyLoad.load(require('./'));
                 deferred.resolve();
             });
-
             return deferred.promise;
         }
     }

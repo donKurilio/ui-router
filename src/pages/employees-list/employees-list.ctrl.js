@@ -1,5 +1,6 @@
 class EmployeesController {
     constructor($state, storage, _, $scope) {
+        "ngInject";
         angular.extend(this, {$state, storage, _, $scope, pageTitle: "Сотрудники"});
 
         this.$scope.$watch(() => this.$state.params.empID, () => {
@@ -17,5 +18,4 @@ class EmployeesController {
         this.$state.go('employees.add');
     }
 }
-EmployeesController.$inject = ['$state', 'storage', '_', '$scope'];
 module.exports = EmployeesController;

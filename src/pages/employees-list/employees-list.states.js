@@ -5,7 +5,8 @@ module.exports = {
     controller: 'EmployeesController',
     controllerAs: 'emps',
     resolve: {
-        loadModule: ($q, $ocLazyLoad) => {
+        'loadModule': ($q, $ocLazyLoad) => {
+            "ngInject";
             const deferred = $q.defer();
             require.ensure([], function() {
                 $ocLazyLoad.load(require('./'));
@@ -15,6 +16,7 @@ module.exports = {
             return deferred.promise;
         },
         'employees': ($resource, storage, loadModule) => {
+            "ngInject";
             return $resource('employees.json').get().$promise.then(data => {
                 storage.employees = data.employees;
             });
