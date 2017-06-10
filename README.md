@@ -1,3 +1,2 @@
-# ui-router
-Тестовое задание по AngularJS и UI Router
-"# ui-router" 
+# Employees App
+Demo-приложение на AngularJS 
