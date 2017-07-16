@@ -1,6 +1,6 @@
 const webpack = require("webpack"),
-    path = require('path');
-
+    path = require('path'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: {
         app: "./src/index.js"
@@ -20,8 +20,18 @@ module.exports = {
             {
                 test: /node_modules/,
                 use: ['uglify-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [ 'css-loader' ]
+                })
+            }, {
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+                use: ['file-loader']
             }
-        ]
+        ],
     },
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
@@ -31,6 +41,9 @@ module.exports = {
                 // this assumes your vendor imports exist in the node_modules directory
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
+        }),
+        new ExtractTextPlugin({
+            filename: '[name].css'
         })
     ]
 };
