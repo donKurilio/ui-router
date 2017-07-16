@@ -11,6 +11,8 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "ng-annotate-loader": "^0.2.0",
     "style-loader": "^0.18.2",
     "uglify-loader": "^1.4.0",

@@ -22,10 +22,10 @@ module.exports = {
                 use: ['uglify-loader']
             },
             {
-                test: /\.css$/,
+                test: /\.less/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [ 'css-loader' ]
+                    use: [ 'css-loader', 'less-loader' ]
                 })
             }, {
                 test: /\.(woff|woff2|eot|ttf|otf|svg)$/,

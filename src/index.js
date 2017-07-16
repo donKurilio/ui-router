@@ -1,4 +1,4 @@
-require('./css/style.css');
+require('./less/style.less');
 const angular = require('angular');
 angular.module('employeeApp',
     [

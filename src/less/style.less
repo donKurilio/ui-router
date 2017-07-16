@@ -1,0 +1,44 @@
+@import '../../node_modules/bootstrap/less/bootstrap';
+
+.employees-table tbody:hover {
+  cursor: pointer;
+}
+
+.bottom-buttons {
+  text-align: right;
+  button {
+    margin-left: 10px;
+  }
+}
+
+.main-menu {
+  padding: 15px 0;
+}
+
+.nav-tabs > li.active > a:hover {
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+form .error-message {
+  display: block;
+  float: left;
+  margin-bottom: -15px;
+  margin-left: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-control.ng-invalid {
+  &.ng-touched, &.ng-dirty {
+    border-color: @brand-danger;
+    .box-shadow(0 0 2px @brand-danger);
+    &:focus {
+      border-color: darken(@brand-danger, 10%);
+      .box-shadow(0 0 8px @brand-danger);
+    }
+  }
+}

@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 23:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var angular=__webpack_require__(0),addEmployee=angular.module("employeesList.addEmployee",[]).controller("AddEmployeeController",__webpack_require__(29));module.exports=addEmployee;
+var angular=__webpack_require__(0),addEmployee=angular.module("employeesList.addEmployee",[]).controller("AddEmployeeController",__webpack_require__(20));module.exports=addEmployee;
 
 /***/ }),
 
-/***/ 29:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
