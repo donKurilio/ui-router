@@ -28,7 +28,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 100%;\n  width: 100%;\n  max-width: 768px;\n  padding: 15px;\n}\n.panel {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  margin: 0;\n  height: 100%;\n  max-height: 800px;\n  overflow: hidden;\n}\n.list-group {\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, ".container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 100%;\n  width: 100%;\n  max-width: 768px;\n  padding: 15px;\n}\n.panel {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  margin: 0;\n  height: 100%;\n  max-height: 800px;\n  overflow: hidden;\n}\n.list-group {\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n  min-height: 42px;\n}\n", ""]);
 
 // exports
 
@@ -253,7 +253,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TODO_LIST = [
     new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 1', false),
-    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 2', true)
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 2', true),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 3', false),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 4', false),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 5', false),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 6', false),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 7', false),
+    new __WEBPACK_IMPORTED_MODULE_1__model_todo_model__["a" /* Todo */]('tratata 8', false),
 ];
 var TodosService = (function () {
     function TodosService() {
@@ -310,7 +316,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ":host {\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, ":host {\n  text-align: center;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n", ""]);
 
 // exports
 
@@ -502,7 +508,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ":host {\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -517,6 +523,7 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__todo_todo_component__ = __webpack_require__("../../../../../src/app/todo/todo.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TodoListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -528,11 +535,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var TodoListComponent = (function () {
-    function TodoListComponent() {
+    function TodoListComponent(el) {
+        this.el = el;
         this.onDelete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
         this.onEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
     }
+    TodoListComponent.prototype.onResize = function (event) {
+        var _this = this;
+        if (this.currentEditingTodo) {
+            var todoElement = this.todoComponents.find(function (comp) { return comp.todo.id === _this.currentEditingTodo.id; }).el.nativeElement, todoListElement = this.el.nativeElement, todoOffsetTop = todoElement.offsetTop, todoOffsetHeight = todoElement.offsetHeight, todoListScrollTop = todoListElement.scrollTop, todoListHeight = todoListElement.offsetHeight, newScrollTop = todoOffsetTop - (todoListHeight / 2) + (todoOffsetHeight / 2);
+            if (todoListScrollTop > todoOffsetTop) {
+                todoListElement.scrollTop = newScrollTop;
+            }
+            else if (todoListScrollTop + todoListHeight < todoOffsetTop + todoOffsetHeight) {
+                todoListElement.scrollTop = newScrollTop;
+            }
+        }
+    };
     TodoListComponent.prototype.onDeleteTodo = function (todo) {
         this.onDelete.emit(todo);
     };
@@ -556,17 +577,28 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Output */])(),
     __metadata("design:type", Object)
 ], TodoListComponent.prototype, "onEdit", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChildren */])(__WEBPACK_IMPORTED_MODULE_1__todo_todo_component__["a" /* TodoComponent */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* QueryList */]) === "function" && _a || Object)
+], TodoListComponent.prototype, "todoComponents", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* HostListener */])('window:resize', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], TodoListComponent.prototype, "onResize", null);
 TodoListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'todo-list',
         template: __webpack_require__("../../../../../src/app/todo-list/todo-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/todo-list/todo-list.component.less")],
         host: { 'class': 'list-group' },
-        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ChangeDetectionStrategy */].OnPush
+        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ChangeDetectionStrategy */].OnPush
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ElementRef */]) === "function" && _b || Object])
 ], TodoListComponent);
 
+var _a, _b;
 //# sourceMappingURL=todo-list.component.js.map
 
 /***/ }),
@@ -623,7 +655,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var TodoComponent = (function () {
-    function TodoComponent() {
+    function TodoComponent(el) {
+        this.el = el;
         this.onEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
         this.onDelete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
         this.onToggleEditing = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
@@ -665,7 +698,7 @@ var TodoComponent = (function () {
     return TodoComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* ViewChild */])('todoitem'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])('todoitem'),
     __metadata("design:type", Object)
 ], TodoComponent.prototype, "todoItem", void 0);
 __decorate([
@@ -694,11 +727,12 @@ TodoComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/todo/todo.component.html"),
         styles: [__webpack_require__("../../../../../src/app/todo/todo.component.less")],
         host: { 'class': 'list-group-item' },
-        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ChangeDetectionStrategy */].OnPush
-    })
+        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ChangeDetectionStrategy */].OnPush
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ElementRef */]) === "function" && _b || Object])
 ], TodoComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=todo.component.js.map
 
 /***/ }),
