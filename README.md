@@ -1,2 +1,1 @@
-# Employees App
-Demo-приложение на AngularJS 
+# ikurilov demo pages
