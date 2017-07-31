@@ -1,6 +1,7 @@
 class EmployeesController {
     constructor($state, storage, _, $scope) {
         "ngInject";
+        console.log('list');
         angular.extend(this, {$state, storage, _, $scope, pageTitle: "Сотрудники"});
 
         this.$scope.$watch(() => this.$state.params.empID, () => {
@@ -11,6 +12,7 @@ class EmployeesController {
     }
 
     editEmployee(emp) {
+        console.log('go edit');
         emp === this.currEmp ? this.$state.go('employees') : this.$state.go('employees.employee', {empID: emp.id});
     };
 

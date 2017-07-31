@@ -1,6 +1,7 @@
 class EditEmployeeController {
     constructor($state, storage, _) {
         "ngInject";
+        console.log('edit');
         angular.extend(this, {$state, storage, _});
         this.emp = this._.find(this.storage.employees, obj => obj.id === this.$state.params.empID);
         if (this.emp) {
